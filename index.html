@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        main {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .mainDiv {
+            text-align: center;
+        }
+
+        h1 {
+            color: black;
+            font-size: 50px;
+            font-weight: bolder;
+            margin: 20px 20px;
+        }
+
+        label {
+            font-size: 25px;
+            margin: 0px 15px;
+        }
+
+        input {
+            border-top: 0px;
+            border-right: 0px;
+            border-left: 0px;
+            border-bottom: 4px solid black;
+            font-size: 25px;
+            margin: 15px;
+        }
+
+        button {
+            font-size: 25px;
+            color: white;
+            background: rgba(49, 49, 148, 0.650);
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 270px;
+            height: 50px;
+            margin: 30px;
+        }
+
+        button:hover {
+            background: rgba(49, 49, 148, 0.750);
+        }
+
+        p {
+            font-size: 25px;
+            margin: 20px 10px;
+        }
+
+        .pictureDiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 90vw;
+            height: auto;
+        }
+
+        .htmlPictureDiv {
+            margin: 20px;
+            height: 50%;
+        }
+
+        .jsPictureDiv {
+            margin: 20px;
+            height: 50%;
+        }
+
+        select,
+        option {
+            border-top: 0px;
+            border-right: 0px;
+            border-left: 0px;
+            border-bottom: 4px solid black;
+            font-size: 25px;
+            margin: 15px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <div class="mainDiv">
+            <!-- Heading  -->
+            <h1>Simple Calculator</h1>
+            <!-- Select Option  -->
+            <div class="selectOparation">
+                <label for="opration">Select Opration :</label>
+                <select name="oparation" id="opration">
+                    <option> Select Opration</option>
+                    <option value="opr1"> + (Addition)</option>
+                    <option value="opr2"> - (Subtraction)</option>
+                    <option value="opr3"> * (Multiplication)</option>
+                    <option value="opr4"> / (Division)</option>
+                </select>
+                <div id="beforeText">
+                    <p id="p1"></p>
+                </div>
+            </div>
+
+            <!-- Input  -->
+            <div class="input1">
+                <label for="variable1">Enter a number 1 :</label>
+                <input type="number" name="var1" id="variable1" placeholder="Enter Number">
+            </div>
+            <div class="input1">
+                <label for="variable1">Enter a number 2 :</label>
+                <input type="number" name="var1" id="variable2" placeholder="Enter Number">
+            </div>
+            <Button onclick="function1()">Calculate</Button>
+            <!-- Print Output  -->
+            <div id="beforeText">
+                <p id="p2"></p>
+            </div>
+        </div>
+
+        <!-- Photo Section  -->
+        <div class="pictureDiv">
+            <div class="htmlPictureDiv">
+                <img src="./html.png" alt="P1">
+            </div>
+            <div class="jsPictureDiv">
+                <img src="./js.png" alt="P1">
+
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- JavaScript  -->
+    <script>
+        "use strict";
+
+        function function1() {
+            let a = document.getElementById("opration").value;
+            let b = parseFloat(document.getElementById("variable1").value);
+            let c = parseFloat(document.getElementById("variable2").value);
+            let d = 0;
+            let e = "A";
+
+            switch (a) {
+
+                case "opr1":
+                    document.getElementById("p1").innerHTML = `Your Selected Oparator is : + (Addition)`;
+                    d = parseFloat(b + c);
+                    e = "+";
+                    document.getElementById("p2").innerHTML = `${b} ${e} ${c} = ${d}`;
+                    break;
+
+                case "opr2":
+                    document.getElementById("p1").innerHTML = `Your Selected Oparator is : - (Subtraction)`;
+                    d = b - c;
+                    e = "-";
+                    document.getElementById("p2").innerHTML = `${b} ${e} ${c} = ${d}`;
+                    break;
+
+                case "opr3":
+                    document.getElementById("p1").innerHTML = `Your Selected Oparator is : * (Multiplication)`;
+                    d = b * c;
+                    e = "*";
+                    document.getElementById("p2").innerHTML = `${b} ${e} ${c} = ${d}`;
+                    break;
+
+                case "opr4":
+                    document.getElementById("p1").innerHTML = `Your Selected Oparator is : / (Division)`;
+                    d = b / c;
+                    e = "/";
+                    document.getElementById("p2").innerHTML = `${b} ${e} ${c} = ${d}`;
+                    break;
+
+                default:
+                    alert("Select valid oparation and value");
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
